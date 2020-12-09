@@ -22,6 +22,9 @@ QRectF SplashItem::boundingRect() const
 
 
 //![2]
+//
+// Рисует надпись в рамке со скруглёнными краями
+//
 void SplashItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     Q_UNUSED(option);

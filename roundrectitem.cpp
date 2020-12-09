@@ -1,25 +1,28 @@
 #include "roundrectitem.h"
 
 
-//![]
+// ![]
 RoundRectItem::RoundRectItem(const QRectF &bounds, const QColor &color,
                              QGraphicsItem *parent)
     :QGraphicsObject(parent), bounds(bounds)
 {
     Q_UNUSED(color);
 }
-//![]
+// ![]
 
 
-//![]
+// ![]
 QRectF RoundRectItem::boundingRect() const
 {
     return bounds.adjusted(0, 0, 2, 2);
 }
-//![]
+// ![]
 
 
-//![]
+// ![]
+//
+// Рисует квадрат со скруглёнными краями
+//
 void RoundRectItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     Q_UNUSED(option);

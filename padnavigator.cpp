@@ -7,6 +7,7 @@
 PadNavigator::PadNavigator(const QSize &size, QWidget* parent)
     :QGraphicsView(parent)
 {
+    Q_UNUSED(size);
     // Splash item
     SplashItem* splash = new SplashItem;
     splash->setZValue(1);
@@ -14,6 +15,8 @@ PadNavigator::PadNavigator(const QSize &size, QWidget* parent)
     // Selection item
     RoundRectItem *selectionItem = new RoundRectItem(QRectF(-60, -60, 120, 120), Qt::gray, 0);
     selectionItem->setZValue(0.5);
+
+
 
 
     QGraphicsScene* scene = new QGraphicsScene(this);
