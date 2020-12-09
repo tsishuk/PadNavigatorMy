@@ -1,6 +1,7 @@
 #include "padnavigator.h"
 #include "splashitem.h"
 #include "roundrectitem.h"
+#include "flipablepad.h"
 
 
 //![0]
@@ -16,14 +17,19 @@ PadNavigator::PadNavigator(const QSize &size, QWidget* parent)
     RoundRectItem *selectionItem = new RoundRectItem(QRectF(-60, -60, 120, 120), Qt::gray, 0);
     selectionItem->setZValue(0.5);
 
-
-
+    // Main pad with icons on it
+    FlipablePad* pad = new FlipablePad(size);
 
     QGraphicsScene* scene = new QGraphicsScene(this);
-    scene->addItem(splash);
+    scene->addItem(pad);
+    //scene->addItem(splash);
     scene->addItem(selectionItem);
     scene->setSceneRect(scene->itemsBoundingRect());
     setScene(scene);
+
+    const QRectF sbr = splash->boundingRect();
+    splash->setPos(-sbr.width() / 2, scene->sceneRect().top() - 2);
+    scene->addItem(splash);
 }
 //![0]
 
